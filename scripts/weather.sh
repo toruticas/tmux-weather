@@ -5,14 +5,21 @@ source "$CURRENT_DIR/helpers.sh"
 
 wttr() {
   local location=$(get_tmux_option "@tmux-weather-location")
-  local language=$(get_tmux_option "@tmux-weather-language2" "en")
+  local language=$(get_tmux_option "@tmux-weather-language" "en")
+  local new_version=$(get_tmux_option "@tmux-weather-v2")
+  local url="wttr.in"
 
-  if [ -z "$location" ]
+  if [ ! -z "$location" ]
   then
-    echo -e "$(curl -s -H "Accept-Language: $language" wttr.in)"
-  else
-    echo -e "$(curl -s -H "Accept-Language: $language" wttr.in/$location)"
+    url+="/$location"
   fi
+
+  if [ ! -z "$new_version" ]
+  then
+    url+="?format=v2"
+  fi
+
+ echo -e "$(curl -s -H "Accept-Language: $language" $url)"
 }
 
 cache() {

@@ -4,6 +4,10 @@ Show detailed weather with a single shortcut using data provided by [wttr.in](ht
 
 ![tmux-weather](./assets/preview.png)
 
+**Data-rich output format (v2)**
+
+![tmux-weather](./assets/preview-v2.png)
+
 ## Installation
 
 ### With [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
@@ -42,6 +46,7 @@ You can customize this plugin with:
 
 - `set-option -g @tmux-weather-location "São Paulo"` - Set up your location: by default, you will get the weather for your current location based on your IP address.
 - `set-option -g @tmux-weather-language "pt-BR"` - Set up your language; by default, you will get the weather info in English.
+- `set-option -g @tmux-weather-v2 true` - [Experimental] Set up the data-rich output format with lots of additional weather and astronomical information.
 
 ## License
 
